@@ -15,4 +15,3 @@ test('compare two JSON files', () => {
   const expected = readFile('comparedFiles.txt');
   expect(expected).toEqual(recieved);
 });
-
