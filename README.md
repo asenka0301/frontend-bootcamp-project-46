@@ -2,6 +2,7 @@
 [![Actions Status](https://github.com/asenka0301/frontend-bootcamp-project-46/workflows/hexlet-check/badge.svg)](https://github.com/asenka0301/frontend-bootcamp-project-46/actions)
 [![Maintainability](https://api.codeclimate.com/v1/badges/bc9ff549a4707a1573f6/maintainability)](https://codeclimate.com/github/asenka0301/frontend-bootcamp-project-46/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/bc9ff549a4707a1573f6/test_coverage)](https://codeclimate.com/github/asenka0301/frontend-bootcamp-project-46/test_coverage)
+[![linter_and_test](https://github.com/asenka0301/frontend-bootcamp-project-46/actions/workflows/linter_and_test.yml/badge.svg)](https://github.com/asenka0301/frontend-bootcamp-project-46/actions/workflows/linter_and_test.yml)
 
 ## Demonstration
 
