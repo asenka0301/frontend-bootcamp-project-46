@@ -13,5 +13,5 @@ const readFile = (path) => {
 export default (file1, file2) => {
   const getData1 = JSON.parse(readFile(file1));
   const getData2 = JSON.parse(readFile(file2));
-  console.log(genDiff(getData1, getData2));
+  return genDiff(getData1, getData2);
 };

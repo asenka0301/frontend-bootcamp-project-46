@@ -1,6 +1,6 @@
 import _ from 'lodash';
 
-const indentSymbol = ' ';
+const indentSymbol = '  ';
 const openSymbol = '{';
 const closeSymbol = '}';
 const labels = {
