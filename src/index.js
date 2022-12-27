@@ -2,6 +2,7 @@ import { cwd } from 'process';
 import { resolve } from 'path';
 import { readFileSync } from 'fs';
 import genDiff from './gendiff.js';
+import parser from './parsers.js';
 
 const readFile = (path) => {
   const currentDir = cwd(path);
@@ -10,8 +11,13 @@ const readFile = (path) => {
   return content;
 };
 
+export const getFileExtention = (file) => {
+  const [, extention] = file.split('.');
+  return `.${extention}`;
+};
+
 export default (file1, file2) => {
-  const getData1 = JSON.parse(readFile(file1));
-  const getData2 = JSON.parse(readFile(file2));
+  const getData1 = parser(readFile(file1), getFileExtention(file1));
+  const getData2 = parser(readFile(file2), getFileExtention(file2));
   return genDiff(getData1, getData2);
 };
