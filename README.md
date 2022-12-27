@@ -4,11 +4,15 @@
 [![Test Coverage](https://api.codeclimate.com/v1/badges/bc9ff549a4707a1573f6/test_coverage)](https://codeclimate.com/github/asenka0301/frontend-bootcamp-project-46/test_coverage)
 [![linter_and_test](https://github.com/asenka0301/frontend-bootcamp-project-46/actions/workflows/linter_and_test.yml/badge.svg)](https://github.com/asenka0301/frontend-bootcamp-project-46/actions/workflows/linter_and_test.yml)
 
+
 ## Demonstration
 
 [![asciicast](https://asciinema.org/a/547869.svg)](https://asciinema.org/a/547869)
 
 [![asciicast](https://asciinema.org/a/547876.svg)](https://asciinema.org/a/547876)
+
+[![asciicast](https://asciinema.org/a/548092.svg)](https://asciinema.org/a/548092)
+
 
 
 
