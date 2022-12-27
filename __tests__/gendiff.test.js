@@ -15,3 +15,21 @@ test('compare two JSON files', () => {
   const expected = readFile('comparedFiles.txt');
   expect(expected).toEqual(recieved);
 });
+
+test('compare two YAML files', () => {
+  const recieved = genDiff(getFixturePath('file1.yml'), getFixturePath('file2.yml'));
+  const expected = readFile('comparedFiles.txt');
+  expect(expected).toEqual(recieved);
+});
+
+test('compare two YAML files where one is empty', () => {
+  const recieved = genDiff(getFixturePath('file1.yml'), getFixturePath('file3_empty.yml'));
+  const expected = readFile('comparedEmptyFiles.txt');
+  expect(expected).toEqual(recieved);
+});
+
+test('compare two equivalent YAML files', () => {
+  const recieved = genDiff(getFixturePath('file2.yml'), getFixturePath('file4_equal.yml'));
+  const expected = readFile('comparedEqualFiles.txt');
+  expect(expected).toEqual(recieved);
+});
