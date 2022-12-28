@@ -13,6 +13,8 @@
 
 [![asciicast](https://asciinema.org/a/548092.svg)](https://asciinema.org/a/548092)
 
+[![asciicast](https://asciinema.org/a/548317.svg)](https://asciinema.org/a/548317)
+
 
 
 
