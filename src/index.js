@@ -17,7 +17,7 @@ export const getFileExtention = (file) => {
   return `.${extention}`;
 };
 
-export default (file1, file2, format) => {
+export default (file1, file2, format = 'stylish') => {
   const getData1 = parser(readFile(file1), getFileExtention(file1));
   const getData2 = parser(readFile(file2), getFileExtention(file2));
   const diff = genDiff(getData1, getData2);

@@ -10,50 +10,21 @@ const __dirname = dirname(__filename);
 const getFixturePath = (filename) => path.join(__dirname, '..', '__fixtures__', filename);
 const readFile = (filename) => readFileSync(getFixturePath(filename), 'utf-8');
 
-test('compare two JSON files', () => {
-  const recieved = genDiff(getFixturePath('file1.json'), getFixturePath('file2.json'), 'stylish');
-  const expected = readFile('comparedFiles.txt');
+test.each([
+  ['file1.json', 'file2.json', 'stylish', 'comparedStylish.txt'],
+  ['file1.json', 'file2.json', 'plain', 'comparedPlain.txt'],
+  ['file1.json', 'file2.json', 'json', 'comparedJSON.txt'],
+  ['file1.yml', 'file2.yml', 'stylish', 'comparedStylish.txt'],
+  ['file1.yml', 'file2.yml', 'plain', 'comparedPlain.txt'],
+  ['file1.yml', 'file2.yml', 'json', 'comparedJSON.txt'],
+])('compare %p, %p  format %p) ', (file1, file2, format, expectedResult) => {
+  const recieved = genDiff(getFixturePath(file1), getFixturePath(file2), format);
+  const expected = readFile(expectedResult);
   expect(expected).toEqual(recieved);
 });
 
-test('compare two YAML files', () => {
-  const recieved = genDiff(getFixturePath('file1.yml'), getFixturePath('file2.yml'), 'stylish');
-  const expected = readFile('comparedFiles.txt');
-  expect(expected).toEqual(recieved);
-});
-
-test('compare nested json files', () => {
-  const recieved = genDiff(getFixturePath('file3.json'), getFixturePath('file4.json'), 'stylish');
-  const expected = readFile('comparedNestedFiles.txt');
-  expect(expected).toEqual(recieved);
-});
-
-test('compare nested yml files', () => {
-  const recieved = genDiff(getFixturePath('file3.yml'), getFixturePath('file4.yml'), 'stylish');
-  const expected = readFile('comparedNestedFiles.txt');
-  expect(expected).toEqual(recieved);
-});
-
-test('compare plain json', () => {
-  const recieved = genDiff(getFixturePath('file3.json'), getFixturePath('file4.json'), 'plain');
-  const expected = readFile('comparedPlain.txt');
-  expect(expected).toEqual(recieved);
-});
-
-test('compare plain json', () => {
-  const recieved = genDiff(getFixturePath('file3.yml'), getFixturePath('file4.yml'), 'plain');
-  const expected = readFile('comparedPlain.txt');
-  expect(expected).toEqual(recieved);
-});
-
-test('compare plain json', () => {
-  const recieved = genDiff(getFixturePath('file3.json'), getFixturePath('file4.json'), 'plain');
-  const expected = readFile('comparedPlain.txt');
-  expect(expected).toEqual(recieved);
-});
-
-test('compare plain json', () => {
-  const recieved = genDiff(getFixturePath('file3.json'), getFixturePath('file4.json'), 'json');
-  const expected = readFile('comparedJSON.txt');
+test('compare without passing format', () => {
+  const recieved = genDiff(getFixturePath('file1.json'), getFixturePath('file2.json'));
+  const expected = readFile('comparedStylish.txt');
   expect(expected).toEqual(recieved);
 });
