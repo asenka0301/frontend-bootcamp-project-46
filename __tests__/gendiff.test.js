@@ -17,7 +17,7 @@ test.each([
   ['file1.yml', 'file2.yml', 'stylish', 'comparedStylish.txt'],
   ['file1.yml', 'file2.yml', 'plain', 'comparedPlain.txt'],
   ['file1.yml', 'file2.yml', 'json', 'comparedJSON.txt'],
-])('compare %p, %p  format %p) ', (file1, file2, format, expectedResult) => {
+])('compare %p %p %p', (file1, file2, format, expectedResult) => {
   const recieved = genDiff(getFixturePath(file1), getFixturePath(file2), format);
   const expected = readFile(expectedResult);
   expect(expected).toEqual(recieved);
