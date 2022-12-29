@@ -1,7 +1,7 @@
 import stylish from './stylish.js';
 import plain from './plain.js';
 
-const formatter = (obj, format) => {
+export default (obj, format) => {
   switch (format) {
     case 'stylish':
       return stylish(obj);
@@ -13,5 +13,3 @@ const formatter = (obj, format) => {
       throw new Error(`${format} is not supported.`);
   }
 };
-
-export default formatter;
