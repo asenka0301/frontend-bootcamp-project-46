@@ -1,21 +1,18 @@
 import { cwd } from 'process';
-import { resolve } from 'path';
+import path, { resolve } from 'path';
 import { readFileSync } from 'fs';
 import genDiff from './gendiff.js';
 import parser from './parsers.js';
 import formatter from './formatters/index.js';
 
-const readFile = (path) => {
-  const currentDir = cwd(path);
-  const absPath = resolve(currentDir, path);
+const readFile = (filepath) => {
+  const currentDir = cwd(filepath);
+  const absPath = resolve(currentDir, filepath);
   const content = readFileSync(absPath, 'utf-8');
   return content;
 };
 
-export const getFileExtention = (file) => {
-  const [, extention] = file.split('.');
-  return `.${extention}`;
-};
+export const getFileExtention = (file) => path.extname(file);
 
 export default (file1, file2, format = 'stylish') => {
   const getData1 = parser(readFile(file1), getFileExtention(file1));
