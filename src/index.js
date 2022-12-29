@@ -3,7 +3,7 @@ import { resolve } from 'path';
 import { readFileSync } from 'fs';
 import genDiff from './gendiff.js';
 import parser from './parsers.js';
-import stylish from './stylish.js';
+import formatter from './formatters/index.js';
 
 const readFile = (path) => {
   const currentDir = cwd(path);
@@ -17,9 +17,9 @@ export const getFileExtention = (file) => {
   return `.${extention}`;
 };
 
-export default (file1, file2) => {
+export default (file1, file2, format) => {
   const getData1 = parser(readFile(file1), getFileExtention(file1));
   const getData2 = parser(readFile(file2), getFileExtention(file2));
   const diff = genDiff(getData1, getData2);
-  return stylish(diff);
+  return formatter(diff, format);
 };

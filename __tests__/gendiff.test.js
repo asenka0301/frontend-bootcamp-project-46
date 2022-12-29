@@ -35,7 +35,7 @@ const readFile = (filename) => readFileSync(getFixturePath(filename), 'utf-8');
 // });
 
 // test('compare nested json files', () => {
-//   const recieved = genDiff(getFixturePath('nestedFile1.json'), getFixturePath('nestedFile2.json'));
+//   const recieved = genDiff(getFixturePath('nestedFile1.yml'), getFixturePath('nestedFile2.yml'));
 //   const expected = readFile('comparedNestedFiles.txt');
 //   expect(expected).toEqual(recieved);
 // });

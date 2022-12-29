@@ -10,11 +10,11 @@ const genDiff = (obj1, obj2) => {
       return { name: key, type: 'deleted', value: obj1[key] };
     }
     if ((_.isPlainObject(obj1[key])) && (_.isPlainObject(obj2[key]))) {
-      return { name: key, type: 'nested', children: genDiff(obj1[key], obj2[key]) };
+      return { name: key, type: 'nested', value: genDiff(obj1[key], obj2[key]) };
     }
     if (obj1[key] !== obj2[key]) {
       return {
-        name: key, type: 'changed', oldValue: obj1[key], newValue: obj2[key],
+        name: key, type: 'changed', value: obj1[key], newValue: obj2[key],
       };
     }
     return { name: key, type: 'unchanged', value: obj1[key] };

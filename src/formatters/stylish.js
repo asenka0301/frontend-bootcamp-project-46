@@ -47,9 +47,9 @@ const stylish = (data) => {
         case 'unchanged':
           return `${addPrefix(node.name, node.type, keyIndent)}: ${stringify(node.value, depth + 1)}`;
         case 'changed':
-          return `${addPrefix(node.name, 'deleted', keyIndent)}: ${stringify(node.oldValue, depth + 1)}\n${addPrefix(node.name, 'added', keyIndent)}: ${stringify(node.newValue, depth + 1)}`;
+          return `${addPrefix(node.name, 'deleted', keyIndent)}: ${stringify(node.value, depth + 1)}\n${addPrefix(node.name, 'added', keyIndent)}: ${stringify(node.newValue, depth + 1)}`;
         case 'nested':
-          return `${addPrefix(node.name, node.type, keyIndent)}: ${openSymbol}\n${iter(node.children, depth + 1).join('\n')}\n${bracketIndent}${closeSymbol}`;
+          return `${addPrefix(node.name, node.type, keyIndent)}: ${openSymbol}\n${iter(node.value, depth + 1).join('\n')}\n${bracketIndent}${closeSymbol}`;
         default:
           return 'invalid';
       }
