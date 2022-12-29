@@ -2,10 +2,16 @@ import stylish from './stylish.js';
 import plain from './plain.js';
 
 const formatter = (obj, format) => {
-  if (format === 'stylish') {
-    return stylish(obj);
+  switch (format) {
+    case 'stylish':
+      return stylish(obj);
+    case 'plain':
+      return plain(obj);
+    case 'json':
+      return JSON.stringify(obj);
+    default:
+      return `${format} is not supported.`;
   }
-  return plain(obj);
 };
 
 export default formatter;

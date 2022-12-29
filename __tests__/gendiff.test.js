@@ -45,3 +45,15 @@ test('compare plain json', () => {
   const expected = readFile('comparedPlain.txt');
   expect(expected).toEqual(recieved);
 });
+
+test('compare plain json', () => {
+  const recieved = genDiff(getFixturePath('file3.json'), getFixturePath('file4.json'), 'plain');
+  const expected = readFile('comparedPlain.txt');
+  expect(expected).toEqual(recieved);
+});
+
+test('compare plain json', () => {
+  const recieved = genDiff(getFixturePath('file3.json'), getFixturePath('file4.json'), 'json');
+  const expected = readFile('comparedJSON.txt');
+  expect(expected).toEqual(recieved);
+});
