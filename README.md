@@ -6,9 +6,9 @@
 
 ## Description
 Gendiff is a program that generates the difference between two data structure (json, yaml(yml)) and output the result in one of three formats (stylish, plain, json).
-
+<!-- 
 ## Requirements
-* Node.js version 18 or higher.
+* Node.js version 18 or higher. -->
 
 ## Setup
 
